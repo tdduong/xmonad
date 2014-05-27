@@ -1,4 +1,5 @@
 xmonad
-======
+xmobar
+stalonetray
 
-My xmonad setting
+###################################

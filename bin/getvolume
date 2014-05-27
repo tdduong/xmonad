@@ -1,0 +1,7 @@
+ismute=`amixer |grep -A 6 \'Master\'|awk {'print $7'} |grep -m 1 "[on|off]" | sed -e 's/[][]//g'`
+icon="<icon=/home/tduong/.xmonad/icons/xbm8x8/vol.xbm/>"
+if [[ $ismute == "on" ]]; then
+	echo "$icon<fc=#ceffac> $(amixer get Master | egrep -o '[0-9]+%'| head -1)</fc>"
+else
+	echo "$icon<fc=#ffb600> Mute</fc>"
+fi
