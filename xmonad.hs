@@ -95,6 +95,7 @@ myLayout = avoidStruts (
     	spiral (6/7)) -- |||
 	--Full
     --noBorders (fullscreenFull Full)
+--- Original version -----
 ------------------------------------------------------------
 tabConfig = defaultTheme { 
 	  activeBorderColor = "#7C7C7C"
