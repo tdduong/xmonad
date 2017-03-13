@@ -1,13 +1,14 @@
 import XMonad
---------------------------
+-----------------------------------------
 import System.IO
 import System.Exit
---------------------------
+------------------------------------------
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks                                                                  
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 -----------------------------------------
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.NoBorders
@@ -32,8 +33,7 @@ import XMonad.Actions.WindowGo
 --------------------------------------------
 import qualified XMonad.StackSet as W                                                                
 import qualified Data.Map as M
-------------------------------------
-import XMonad.Hooks.EwmhDesktops
+---------------------------------------------
 
 myModMask :: KeyMask
 myTerminal      = "gnome-terminal"
@@ -86,16 +86,19 @@ myManagementHooks =
 		className =? "File Operation Progress"   	--> doFloat,
 		fmap ("NetApp" `isPrefixOf`) title --> doShift "4:remote" <+> doCenterFloat
 	]
+------------------------------------------------------------
+--myLayout = avoidStruts (tall ||| Mirror tall ||| Full)
+  --where
+    -- tall = ResizableTall nmaster delta ratio []
+     --nmaster = 1
+     --delta   = 3/100
+     --ratio   = 1/2      
+------------------------------------------------------------
 myLayout = avoidStruts (
-    	Tall 1 (3/100) (1/2) |||
-   	Mirror (Tall 1 (3/100) (1/2)) |||
-    	tabbed shrinkText tabConfig |||
-	--tabbed |||
-    	Full |||
-    	spiral (6/7)) -- |||
-	--Full
-    --noBorders (fullscreenFull Full)
---- Original version -----
+        Tall 1 (3/100) (1/2) |||
+        Mirror (Tall 1 (3/100) (1/2)) |||
+        tabbed shrinkText tabConfig |||
+        spiral (6/7)) -- |||
 ------------------------------------------------------------
 tabConfig = defaultTheme { 
 	  activeBorderColor = "#7C7C7C"
@@ -167,7 +170,7 @@ main = do
     xmonad $ defaultConfig { 
         manageHook = manageDocks <+> manageHook defaultConfig <+> composeAll myManagementHooks 
         , layoutHook = avoidStruts  $ smartBorders $ myLayout 
-	, handleEventHook = ewmhDesktopsEventHook
+	, handleEventHook = ewmhDesktopsEventHook <+> docksEventHook
         , logHook = myLogHook <+> ewmhDesktopsLogHook <+> dynamicLogWithPP xmobarPP
                 { ppOutput = hPutStrLn xmproc
                 , ppTitle = xmobarColor "blue" "" . shorten 50
