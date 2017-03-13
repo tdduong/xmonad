@@ -1,0 +1,202 @@
+!
+!   .Xresources file
+!   Man pages: xrdb, Xsession
+!
+! --------------------------------------------
+! Note that $HOME/.Xdefaults is a relic from
+! X Version 10 (and  X11R1)  days, before
+! app-defaults  files were implemented.
+! It has been deprecated for over ten years
+! .Xresources should be used instead.
+! --------------------------------------------
+
+!---- Font rendering  {
+! ref: https://wiki.archlinux.org/index.php/Font_Configuration
+! ref: http://www.keithp.com/~keithp/render/Xft.tutorial
+Xft.antialias:                        	1
+!Xft.autohint:                         	true
+Xft.autohint:				0
+Xft.hinting:                          	1
+!Xft.hintstyle:                       	hintfull
+Xft.hintstyle:                        	hintslight
+Xft.dpi:                              	90
+Xft.rgba:                            	rgb
+!Xft.embolden:                        	false
+Xft.lcdfilter:                        	lcddefault
+
+!---- X Cursor theme {
+!Xcursor.theme: 				Vanilla-DMZ-AA 
+Xcursor.theme:                        	DMZ-White
+Xcursor.size:                         	7		
+
+!---- Emacs {
+Emacs*.FontBackend:                   xft
+Emacs*.menuBar:                       off
+Emacs*.toolBar:                       -1
+Emacs*.verticalScrollBars:            off
+Emacs*.borderWidth:                   0
+Emacs*.internalBorder:                3
+Emacs*menubar.margin:                 0
+Emacs*shadowThickness:                1
+
+!---- Xmessage, zenburnesque {
+Xmessage*form.*.shapeStyle:           rectangle
+Xmessage*Scrollbar.width:            2 
+Xmessage*Scrollbar.borderWidth:       0
+! Xmessage*Buttons:                     Quit
+! Xmessage*defaultButton:               Quit
+Xmessage*geometry:                    +20+20
+!--- Xterm Config
+xterm*Background:               black
+xterm*Foreground:               green
+xterm*cursorColor:              LightBlue
+xterm*pointerShape:             arrow
+xterm*pointerColor:             blue
+!---- URxvt - General settings {
+URxvt*fading:                         0
+URxvt*:borderLess:                    true
+URxvt*internalBorder:                 5
+!--- Color setting
+! black
+URxvt.color0  : #2E2E34343636
+URxvt.color8  : #555557575353
+! red
+URxvt.color1  : #CCCC00000000
+URxvt.color9  : #EFEF29292929
+! green
+URxvt.color2  : #4E4E9A9A0606
+URxvt.color10 : #8A8AE2E23434
+! yellow
+URxvt.color3  : #C4C4A0A00000
+URxvt.color11 : #FCFCE9E94F4F
+! blue
+URxvt.color4  : #34346565A4A4
+URxvt.color12 : #72729F9FCFCF
+! magenta
+URxvt.color5  : #757550507B7B
+URxvt.color13 : #ADAD7F7FA8A8
+! cyan
+URxvt.color6  : #060698209A9A
+URxvt.color14 : #3434E2E2E2E2
+! white
+URxvt.color7  : #D3D3D7D7CFCF
+URxvt.color15 : #EEEEEEEEECEC
+!
+URxvt*foreground:White
+URxvt*background:Black
+! fonts
+! ! run "fc-list" for a list of available fonts
+URxvt*font: xft:Monospace:pixelsize=12
+!
+URxvt*scrollBar: False
+URxvt*scrollTtyOutput: False
+URxvt*scrollTtyKeypress: True
+URxvt*secondaryScroll: True
+URxvt*saveLines: 8000
+URxvt*cursorBlink:                    false
+! URxvt*font:                           xft:Anonymous Pro:pixelsize=13
+! URxvt*font:                           xft:PragmataPro:pixelsize=13
+!URxvt*font:                           xft:PragmataPro:size=11.8
+! NOTE letter spacing is specific to pragmata pro here!
+URxvt.letterSpace:                         -2
+URxvt*jumpScroll:                     true
+!URxvt*scrollBar:                      off
+!URxvt*saveLines:                      20000
+URxvt*scrollWithBuffer:               true
+!URxvt*scrollTtyOutput:                false
+!URxvt*scrollTtyKeypress:              true
+URxvt*urgentOnBell:                   true
+URxvt*visualBell:                     false
+URxvt*perl-lib:                       .xmonad/urxvt/
+URxvt*perl-ext-common:                clipboard,confirm-paste,url-select,font,searchable-scrollback,selection-popup,keyboard-select,autocomplete-ALL-the-things
+URxvt*tabbed.autohide:                false
+URxvt*tabbed.tabbar-fg:               10
+URxvt*tabbed.tabbar-bg:               0
+URxvt*tabbed.tab-fg:                  0
+URxvt*tabbed.tab-bg:                  4
+URxvt*tabbed.title-fg:                4
+URxvt*tabbed.title-bg:                0
+URxvt*tabbed.repoen-on-close:         yes
+URxvt*matcher.button:                 1
+URxvt.print-pipe:                     cat > $(echo urxvt.scrollback.$(date +'%Y-%m-%d.%H_%m_%S'))
+URxvt.keysym.C-plus:                  perl:font:increment
+URxvt.keysym.C-minus:                 perl:font:decrement
+URxvt*searchable-scrollback:          M-s
+URxvt*keysym.M-s:                     perl:keyboard-select:search
+URxvt*keysym.M-Escape:                perl:keyboard-select:activate
+URxvt*keysym.M-u:                     perl:url-select:select_next
+URxvt*keysym.M-C-slash:               perl:aAtt:complete
+URxvt*keysym.M-question:              perl:aAtt:skeleton-complete
+URxvt*keysym.M-quotedbl:              perl:aAtt:undo
+URxvt*url-select.launcher:            www
+URxvt*url-select.underline:           true
+URxvt*clipboard.autocopy:             true
+URxvt.keysym.H-v:                     perl:clipboard:paste
+URxvt*dynamicColors:                  on
+
+!---- URxvt - Scratcpad terminals {
+scratchpad_smallTerminal*scrollBar:        false
+scratchpad_smallTerminal*perl-ext:         tabbedex,-font
+
+scratchpad_largeTerminal*scrollBar:        false
+scratchpad_largeTerminal*perl-ext:         tabbedex,-font
+
+tabbed*perl-ext:         tabbedex,-font
+
+htop*saveLines:                            0
+htop*scrollBar:                            false
+
+dstat*internalBorder:                      8
+dstat*saveLines:                           1000
+dstat*scrollBar:                           8
+
+pamixer*saveLines:                         0
+pamixer*scrollBar:                         false
+
+ssh_tmux*scrollBar:                        false
+ssh_tmux*saveLines:                        0
+! ssh_tmux.letterSpace:                           0
+! ssh_tmux*font:                             xft:Anonymous Pro:size=11.8
+ssh_tmux*font:                             xft:PragmataPro:size=12
+
+ncmpcpp*scrollBar:                         false
+ncmpcpp*saveLines:                         0
+! ncmpcpp*font:                              xft:Anonymous Pro:pixelsize=16
+ncmpcpp*font:                              xft:PragmataPro:size=12
+
+Xautolock.time:        10
+Xautolock.corners:     -+00
+Xautolock.cornerdelay: 10
+Xautolock.locker:      i3lock -c 232323
+
+! xscreensaver --------------------------------------------------------------
+!font settings
+xscreensaver.Dialog.headingFont: xft:zekton:size=7
+xscreensaver.Dialog.bodyFont: xft:zekton:size=7
+xscreensaver.Dialog.labelFont: xft:zekton:size=7
+xscreensaver.Dialog.unameFont: xft:zekton:size=7
+xscreensaver.Dialog.buttonFont: xft:zekton:size=7
+xscreensaver.Dialog.dateFont: xft:zekton:size=7h
+xscreensaver.passwd.passwdFont: xft:zekton:size=7
+!general dialog box
+xscreensaver.Dialog.foreground: #b0b0b0
+xscreensaver.Dialog.background: #1c1d1f
+xscreensaver.Dialog.topShadowColor: #1c1d1f
+xscreensaver.Dialog.bottomShadowColor: #1c1d1f
+xscreensaver.Dialog.Button.foreground:  #b0b0b0
+xscreensaver.Dialog.Button.background:  #1c1d1f
+!username/password input box and date text colour
+xscreensaver.Dialog.text.foreground:    #b0b0b0
+xscreensaver.Dialog.text.background: #1c1d1f
+xscreensaver.Dialog.borderWidth:        0
+xscreensaver.Dialog.shadowThickness:    0
+xscreensaver.passwd.thermometer.foreground: #1c1d1f
+xscreensaver.passwd.thermometer.background: #1c1d1f
+xscreensaver.passwd.thermometer.width: 0
+!datestamp format--see the strftime(3) manual page for details
+xscreensaver.dateFormat:    %H:%M - %a %d. %b %Y
+
+! Local Variables:
+! eval: (rainbow-mode)
+! End:
+

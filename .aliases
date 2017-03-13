@@ -1,0 +1,62 @@
+#!/bin/bsah
+alias a=alias
+a cdrom='sudo mount /dev/cdrom /mnt'
+#a less=vless
+a ..='cd ..'
+a hcmit='sudo mount -t cifs //10.38.18.239/shared /data/hcm/hcmit -o user=tduong,domain=amcc'
+a shared='sudo mount -t cifs //hcmna02/shared /data/hcm/shared -o user=tduong,domain=amcc'
+a scratch='sudo mount -t cifs //hcmna01/hcm_scratch /data/hcm/scratch1 -o user=tduong,domain=amcc'
+a scratch2='sudo mount -t cifs //hcmna02/hcm_scratch2 /data/hcm/scratch2 -o user=tduong,domain=amcc'
+a users_home='sudo mount -t cifs //hcmna02/users /data/hcm/users -o user=tduong,domain=amcc'
+alias freemem='sudo /sbin/sysctl -w vm.drop_caches=3'
+alias enter_matrix='echo -e "\e[32m"; while :; do for i in {1..30}; do r="$(($RANDOM % 2))"; if [[ $(($RANDOM % 5)) == 1 ]]; then if [[ $(($RANDOM % 4)) == 1 ]]; then v+="\e[1m $r   "; else v+="\e[2m $r   "; fi; else v+="     "; fi; done; echo -e "$v"; v=""; done'
+#a hcmutil01='rdesktop-vrdp hcmutil01 -g 1440x800'
+a hcmprint01='rdesktop-vrdp hcmprint01 -g 1440x800'
+#a hcmav01='rdesktop-vrdp hcmav01 -g 1440x800'
+a hcmav01="remmina -c $REMMINA_ENV/hcmav01.remmina"
+a hcmads01='rdesktop-vrdp hcmads01 -g 1440x800'
+a hcmad01='rdesktop-vrdp hcmad01 -g 1440x800'
+a netapp='cd /opt/NetApp/oncommand_system_manager && java -jar SystemManager.jar &'
+a nmcon=nmconsole-3.0.2
+a uzbl=uzbl-tabbed
+############## System command ############
+a mpk='makepkg -s'
+a pu='sudo pacman -U'
+a 2mon='~/bin/xrandr_2mon'
+a 1mon='~/bin/xrandr_1mon'
+a 3mon='~/bin/xrandr_3mon'
+a wincap='~/bin/windows_cap'
+a hcmutil01='remmina -c $REMMINA_ENV/hcmutil01.remmina'
+a usb_modem="sudo usb_modeswitch -c /usr/share/usb_modeswitch/19d2\:2000 -v 19d2 -p 2000 && lsusb | grep ZTE"
+a hcmvpn="vpnagentd && vpn connect hcmwvpn.apm.com"
+a denvpn="vpnagentd && vpn connect denwvpn.apm.com"
+a pnqvpn="vpnagentd && vpn connect pnqwvpn.apm.com"
+a hcmopenvpn="sudo openconnect hcmwvpn.apm.com"
+a denopenvpn="sudo openconnect denwvpn.apm.com"
+a pnqopenvpn="sudo openconnect pnqwvpn.apm.com"
+############### Github ###################
+a gitft='git fetch'
+a gitpl='git pull'
+a gitps='git push'
+a gitplmodules="git pull modules master"
+a gitpllsf="git pull lsf master"
+a gitplpuppet="git pull puppet master"
+a gitplkickstart="git pull kickstart master"
+a gitplscripts="git pull itscripts master"
+a gitpsmodules="git push modules master"
+a gitpslsf="git push lsf master"
+a gitpspuppet="git push puppet master"
+a gitpsscripts="git push itscripts master"
+#########################################
+a shutdown="sudo shutdown now"
+a sangam_cvs="export CVSROOT=:pserver:tduong@dencvs01:/projects/den/sangam/cvs"
+a 2hdmi="xrandr --output HDMI3 --right-of HDMI2"
+a thinkorswim="cd /home/tduong/.wine/drive_c/Program\ Files/thinkorswim/ && wine thinkorswim.exe &"
+a super1="cd /home/tduong/.wine/drive_c/Program\ Files/Cabridge/Super\ Minds/Level\ 1/ && wine Super\ Minds\ Level\ 1.exe"
+a broker32="cd /home/tduong/.wine/drive_c/Program\ Files/AmiBroker && wine Broker.exe" 
+a broker64="cd /home/tduong/.wine/drive_c/Program\ Files\ \(x86\)/AmiBroker && wine Broker.exe"
+a wine32="WINEARCH=win32 WINEPREFIX=~/.wine winecfg"
+a amifor="cd /home/tduong/.wine/drive_c/Program\ Files/AmiBroker/Formulas/"
+a datafeed="cd /home/tduong/.wine/drive_c/users/tduong/Local\ Settings/Application\ Data/Programs/Common/DataFeed/ && wine datafeed.exe"
+
+a sshna="ssh -oKexAlgorithms=+diffie-hellman-group1-sha1"

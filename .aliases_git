@@ -1,0 +1,5 @@
+alias gitinitlsf="git remote add lsf git@github.com:AppliedMicro/APMLSF.git"
+a gitinitpp="git remote add puppet git@github.com:AppliedMicro/APMPuppet.git"
+a gitinitkst="git remote add kickstart git@github.com:AppliedMicro/APMKickstart.git"
+a gitinitmd="git remote add modules git@github.com:AppliedMicro/APMModules.git"
+

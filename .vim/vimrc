@@ -1,0 +1,16 @@
+syntax on
+set fileformats=unix,dos
+set history=500
+set ignorecase
+set wrap
+highlight Comment ctermfg=LightCyan
+set hlsearch
+set incsearch
+set cul
+set statusline=%t\ %y\ [%l,%c]
+set ls=2
+set clipboard=unnamedplus
+set nobackup
+set nowb
+set noswapfile
+map <C-c> "+y<CR>
