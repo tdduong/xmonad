@@ -1,13 +1,27 @@
 Config {
-    	font = "xft:Terminus-8" 
-    	, bgColor = "#222222"
-    	, fgColor = "#bbbbbb"
---    	, position = Static { xpos = 0, ypos = 0, width = 1480, height = 18 }
-    	, position = TopW R 100
-	, lowerOnStart = True
-    	, sepChar = "%"
-    	, alignSep = "}{"
-	, template = "%StdinReader% }{[ %cpu% ][ %memory% ][ %coretemp% ][ %battery% ][ %wlp3s0wi% ][ %enp0s25% ][ %volume% ] <fc=#ee9fff>%date%</fc>"
+    	font = "xft:Terminus-8"
+	, additionalFonts	= []
+	, borderColor 		= "black"
+	, border		= TopB
+	, allDesktops 		= False
+--	, overrideRedirect	= False
+	, overrideRedirect      = True
+	, alpha			= 255
+	, textOffset		= -1
+	, iconOffset		= -1
+	, lowerOnStart		= True
+	, pickBroadest		= False
+	, hideOnStart		= False
+	, persistent		= False
+	, iconRoot		= "."
+--    	, bgColor 		= "#222222"
+	, bgColor		= "#000000"
+    	, fgColor 		= "#bbbbbb"
+--    	, position 		= Static { xpos = 0, ypos = 0, width = 1480, height = 18 }
+    	, position 		= TopW R 100
+    	, sepChar 		= "%"
+    	, alignSep 		= "}{"
+	, template = "%StdinReader% }{[ %cpu% ][ %memory% ][ %coretemp% ][ %battery% ][ %wlp3s0wi% ][ %enp0s25% ][ %volume% ] %date%"
 
     , commands = [
         Run Cpu
@@ -69,7 +83,7 @@ Config {
             10    
         
         , Run Date
-            "%a %b %_d @ <fc=#ee9a00>%H:%M</fc>" "date"
+            "%a %b %_d * <fc=#ee9a00>%H:%M</fc>" "date"
             10
 
         , Run StdinReader
