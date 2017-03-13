@@ -48,7 +48,7 @@ myLogHook :: X ()
 myLogHook = fadeInactiveLogHook fadeAmount
   where
         --fadeAmount = 0.5
-	fadeAmount = 0.7
+	fadeAmount = 0.95
 myWorkspaces = ["1:main","2:web","3:code","4:remote","5:multi","6:train","7:ref", "8:media", "9:scripting"] -- ++ map show [7..9]
 -- See more at: http://www.tonicebrian.com/2011/09/05/my-working-environment-with-xmonad/#sthash.naKWmCyr.dpuf
 --------------------------
